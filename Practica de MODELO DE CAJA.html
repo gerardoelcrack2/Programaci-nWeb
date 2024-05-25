@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mi Periódico</title>
+    <style>
+        /* Estilo para el encabezado */
+        header {
+            background-color: whitesmoke;
+            /* Color de fondo */
+            color: black;
+            /* Color del texto */
+            border-radius: 10px;
+            padding: 20px;
+            /* Espaciado interno */
+            text-align: right;
+            /* Alineación del texto */
+            background-image: url(Logo.png);
+            /* Ruta de tu imagen de fondo */
+            background-size: auto 100%;
+            /* Ajusta la altura al 100% y el ancho automático */
+            background-repeat: no-repeat;
+            /* Evita que la imagen se repita */
+        }
+
+        /* Estilo para el texto en negritas */
+        .informacion-local {
+            font-weight: bold;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .noticias-container {
+            display: flex;
+            flex-wrap: wrap;
+            /* Permite que las noticias se envuelvan a la siguiente fila */
+            justify-content: space-between;
+            /* Espacio uniforme entre los bloques */
+        }
+
+        /* Estilo para cada bloque de noticia */
+        .noticia {
+            overflow: auto;
+            height: 500px;
+            width: 31%;
+            /* Ancho de cada bloque (ajusta según tus necesidades) */
+            background-color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin-bottom: 1%;
+            /* Espacio entre bloques de noticias */
+        }
+
+        .noticia:hover {
+            /*background-color: #e0e0e0;*/
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            /* Sombra alrededor del borde */
+        }
+
+        /* Estilo para las imágenes en las noticias */
+        .noticia img {
+            border-radius: 10px;
+            width: 100%
+                /* Redondea las esquinas de la imagen */
+        }
+
+        /* Estilo para el pie de página */
+        footer {
+            background-color: rgb(81, 100, 169);
+            border-top: 10px solid red;
+            /* Línea gruesa de color rojo */
+            padding-top: 10px;
+            /* Agrega espacio entre la línea y el texto/enlaces */
+            color: white;
+            font-size: small;
+            text-align: center;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1><a href="https://www.heraldo.mx/">El Heraldo</a></h1>
+        <p><span class="informacion-local">INFORMACIÓN LOCAL</span> / DOMINGO 17 de MARZO DE 2024</p>
+    </header>
+    <hr>
+
+    <div class="noticias-container">
+        <div class="noticia" style="width: 20%;">
+            <a href="https://www.heraldo.mx/presentan-el-programa-charro-de-la-fnsm-2/">
+                <h2>Presentan el programa charro de la FNSM</h2>
+                <img src="Porgrama-charro-600x392.jpg" alt="Programa charro">
+                <p style="text-align: justify;">Desde que se construyó la nueva Arena San Marcos, el mejor escenario
+                    charro de todo el país, la charrería tomó un peso importante en Aguascalientes y en la Feria
+                    Nacional de San Marcos, ya que siempre se cuenta con un programa espectacular del deporte nacional
+                    por excelencia.<br>
+                    Este año no será la excepción, y la PUA de Aguascalientes, junto con el Patronato de la Feria,
+                    dieron a conocer el programa charro de este año, así como todos los eventos que se tendrán en la
+                    Arena San Marcos, contando con espectáculos musicales y de otros deportes.<br>
+                    El primer evento será la cabalgata del 13 de abril que cerrará en la Arena con un rodeo baile; el
+                    día 14 se tendrá la primera Feria de Escaramuzas y del 15 al 17 de abril se llevará a cabo un torneo
+                    infantil y juvenil de charrería.<br>
+                    Posteriormente, el 18 y 19 habrá un evento de kickboxing y el 20 un baile de feria, pero el 21
+                    regresará la actividad a caballo con la segunda Feria de Escaramuzas. Para el 22, 23 y 24 de abril
+                    se tendrá un torneo estatal de categoría “A”, mientras que el 25 se tendrá la tradicional charreada
+                    de gala de la FNSM.<br>
+                    Del 26 al 28 de abril se llevará a cabo el torneo nacional “AAA” de la feria con la participación de
+                    los mejores equipos de México; el 27 habrá un coleadero baile y el 29 culminará la actividad de
+                    abril con un torneo de charros mayores.<br>
+                    Para el mes de mayo, se iniciará con un torneo nacional de categoría “AA” que se desarrollará del 1
+                    al 5 de mayo, el cual se empalmará con dos espectáculos de rodeo que se harán el 4 y 5 de mayo,
+                    dando fin a un programa que promete tener muchas emociones en la Arena San Marcos de Aguascalientes.
+                </p>
+                <hr>
+            </a>
+        </div>
+        <hr>
+
+        <div class="noticia" style="width: 50%;">
+            <a href="https://www.heraldo.mx/reorganiza-el-estado-su-patrimonio-inmueble/">
+                <h2>Reorganiza el estado su patrimonio inmueble</h2>
+                <img src="ADMON-CECILIA-600x400.jpg" alt="Reorganización inmueble">
+                <p style="text-align: justify;">La Secretaría de Administración del Estado de Aguascalientes ha asumido
+                    el control para la regularización del patrimonio inmueble estatal, gracias a la reciente
+                    implementación de la nueva Ley de Bienes y la instalación del Comité correspondiente, lo que marca
+                    un antes y un después en la gestión de los bienes inmuebles del estado.<br>
+                    Anteriormente, la Dirección de Control Patrimonial estaba adscrita a la Contraloría Estatal, cuya
+                    función primordial no es el manejo del registro de bienes inmuebles, sino la supervisión y auditoría
+                    de las actividades estatales. Tras reconocer esta discrepancia, la administración actual ha
+                    transferido esa área a la Secretaría de Administración, donde se espera una gestión más adecuada y
+                    eficiente de los recursos inmuebles estatales.<br>
+                    Raquel Soto Orozco, titular de la Secretaría de Administración, señaló que la tarea de catalogar el
+                    vasto número de propiedades del Estado no es menor. Abarca desde viviendas, terrenos destinados a la
+                    construcción, hasta edificios emblemáticos como el Palacio de Gobierno, escuelas y hospitales,
+                    distribuidos en diversas localidades.<br>
+                    Dijo que esta labor, descrita como «titánica», tiene como objetivo no solo organizar el inventario
+                    existente, sino también sentar las bases para una administración patrimonial eficaz y transparente
+                    en el futuro.<br>
+                    Con la colaboración de la Consejería Jurídica, se estableció un comité de bienes que operará en
+                    conjunto con el Comité de Arquitectura, asegurando que todos los bienes inmuebles pasen por un
+                    registro oficial. Este comité no solo se encargará de la regularización del inventario actual, sino
+                    que también tomará decisiones críticas sobre el futuro uso y distribución de los bienes, abriendo
+                    posibilidades para la edificación y apoyo a iniciativas de la sociedad civil organizada.
+                </p>
+                <hr>
+            </a>
+        </div>
+        <hr>
+        
+        <div class="noticia" style="width: 20%;">
+            <a href="https://www.heraldo.mx/amenaza-sequia-a-la-industria-lechera/">
+                <h2>Amenaza sequía a la industria lechera</h2>
+                <img src="SEDRAE-CECILIA-1-600x400.jpg" alt="">
+                <p style="text-align: justify;">En el estado de Aguascalientes, la sequía ha puesto en jaque a la
+                    industria lechera, llevando a los productores a exigir cambios legislativos y una mayor regulación
+                    para evitar la competencia desleal frente a la importación de leche en polvo y derivados lácteos,
+                    reconoció Isidoro Armendáriz García, Secretario de Desarrollo Rural y Agroempresarial.<br>
+                    Los productores agropecuarios solicitan una revisión de las leyes por parte del Congreso de la
+                    Unión, incluyendo el Impuesto Especial sobre Productos y Servicios. La propuesta busca que
+                    importadores de leche en polvo y derivados paguen un impuesto especial para equilibrar el mercado y
+                    favorecer a los productores nacionales, quienes se destacan por ofrecer productos de mayor calidad y
+                    son capaces de satisfacer la demanda local y regional.<br>
+                    Esta situación ha llevado a la gobernadora del estado a establecer comunicaciones con los
+                    secretarios de Economía y de Agricultura, así como con directivos de Segalmex, Liconsa y Profeco,
+                    buscando aplicar los principios de los artículos 25 y 28 de la Constitución General de la República,
+                    que abogan por la regulación económica en beneficio de los consumidores y la prohibición de
+                    prácticas monopólicas.<br>
+                    La Comisión Federal de Competencia Económica se ve llamada a intervenir para asegurar que las
+                    grandes empresas actúen de manera socialmente responsable y en solidaridad con los productores
+                    locales. Este escenario es crítico debido a la caída en el precio de la leche y el exceso de
+                    producción en Aguascalientes, lo cual afecta principalmente a los pequeños ganaderos.<br>
+                    La gobernadora ha iniciado mesas de diálogo con los productores para atender sus inquietudes. Se han
+                    llevado a cabo reuniones con representantes de granjas y ganaderos, especialmente en el Valle de
+                    Aguascalientes, donde se concentra una considerable producción lechera. El principal desafío es la
+                    insuficiencia del presupuesto de Liconsa para garantizar un precio justo a todos los niveles de
+                    productores, desde los pequeños hasta los más consolidados.
+                </p>
+                <hr>
+            </a>
+        </div>
+    </div>
+    <hr>
+
+    <div class="noticias-container">
+        <div class="noticia">
+            <a href="https://www.heraldo.mx/alza-en-cancer-bucal-por-cambios-sociales/">
+                <h2>Alza en cáncer bucal por cambios sociales</h2>
+                <img src="dentista_01-600x400.png" alt="">
+                <p style="text-align: justify;">El cáncer bucal no es solo un problema local, sino un desafío global que
+                    va en aumento debido al cambio en las costumbres y prácticas de salud, lo que requiere una atención
+                    urgente y una acción coordinada en todos los niveles de la sociedad, afirmó Italia Marín Bosque,
+                    integrante del Colegio de Ortodoncistas de Aguascalientes.<br>
+                    La especialista comentó que históricamente, esta enfermedad solía ser más prevalente en hombres
+                    debido a los altos índices de tabaquismo y consumo de alcohol entre ellos. Sin embargo, con el
+                    cambio en los hábitos sociales, ahora se observa un incremento preocupante en mujeres que padecen
+                    esta enfermedad. “El aumento del consumo de alcohol y tabaco entre las mujeres, junto con la
+                    exposición al virus del papiloma humano (VPH) a través de prácticas sexuales, se ha identificado
+                    como un factor clave en este cambio demográfico”.<br>
+                    Señaló que el VPH, un virus asociado comúnmente con el cáncer cervical, ha emergido como un factor
+                    predisponente significativo para el cáncer bucal. Explicó que las relaciones sexuales orales pueden
+                    transmitir el VPH a la boca, lo que puede provocar lesiones que eventualmente pueden desarrollarse
+                    en cáncer bucal, por lo que es crucial que los pacientes se sometan a revisiones dentales regulares
+                    para identificar y tratar estas lesiones a tiempo, lo que puede prevenir el desarrollo posterior del
+                    cáncer.<br>
+                    Además, resaltó la importancia de la educación y la conciencia pública sobre los riesgos del cáncer
+                    bucal. Afirmó que, con el cambio en las costumbres sociales, como el aumento del consumo de alcohol
+                    y tabaco entre las mujeres, así como la exposición al sol excesiva, puede provocar cáncer en los
+                    labios, por lo que es fundamental que la población esté informada sobre cómo prevenir esta
+                    enfermedad.<br>
+                    Finalmente, Marín Bosque reiteró que es esencial que las personas se sometan a revisiones dentales
+                    regulares para detectar posibles lesiones que podrían predisponer al desarrollo del cáncer bucal. La
+                    detección temprana, enfatizó, puede permitir la intervención oportuna y la prevención del desarrollo
+                    de la enfermedad en etapas avanzadas.
+                </p>
+                <hr>
+            </a>
+        </div>
+        <hr>
+
+        <div class="noticia">
+            <a href="https://www.heraldo.mx/buscan-ampliar-el-banco-de-ojos/">
+                <h2>Buscan ampliar el Banco de Ojos</h2>
+                <img src="OJOS-SERGIO-600x400.jpg" alt="">
+                <p style="text-align: justify;">Gestiona el Banco de Ojos y Tejidos de Aguascalientes la ampliación de
+                    sus instalaciones a fin de mejorar la capacidad de atención oftalmológica en la región en favor de
+                    los más necesitados, destacó el presidente de dicho patronato, Ricardo Magdaleno Rodríguez.<br>
+                    El activista dio a conocer detalles sobre los avances en la obtención de equipamiento y los
+                    proyectos planeados para el presente año. Con relación al equipamiento, mencionó la gestión de un
+                    campímetro para mejorar la capacidad de atención. Además, destacó el trámite en curso para obtener
+                    la licencia de construcción, necesaria para la ampliación que contempla la incorporación de tres
+                    quirófanos adicionales.<br>
+                    Sobre la obtención de apoyo del Municipio, expresó la esperanza de recibir exención del costo de la
+                    licencia, un paso crucial para el avance del proyecto. Respecto al inicio de la construcción,
+                    Magdaleno Rodríguez explicó que se requería la obtención de la licencia y la tramitación ante
+                    COFEPRIS, estimando que podrían comenzar aproximadamente a finales de este mes.<br>
+                    En cuanto a los detalles de la ampliación, el presidente del Patronato resaltó que esta implicaría
+                    la creación de nuevas áreas, incluyendo la expansión de la sala de espera, la duplicación de las
+                    áreas de consulta y estudios oftalmológicos, así como el incremento de los quirófanos de uno a tres.
+                    Destacó que el espacio actual es suficiente para estas nuevas áreas, sin necesidad de terrenos
+                    adicionales.<br>
+                    En términos de impacto en la atención, Magdaleno Rodríguez proyectó que la ampliación permitiría
+                    duplicar el servicio, lo que significaría un incremento significativo en la capacidad de la
+                    institución para atender a pacientes con problemas</p>
+                <hr>
+            </a>
+        </div>
+        <hr>
+
+        <div class="noticia">
+            <a href="https://www.heraldo.mx/piden-taxistas-regular-vehiculos-de-plataforma/">
+                <h2>Piden taxistas regular vehículos de plataforma</h2>
+                <img src="SEDRAE-CECILIA-1-600x400.jpg" alt="">
+                <p style="text-align: justify;">La Asociación de Taxistas Revolucionarios pedirá a la coordinación
+                    general de movilidad poner orden ante el alto número de vehículos de plataforma que se prevé operen
+                    durante la Feria Nacional de San Marcos, informó Refugio Eudave Ortiz.<br>
+                    Según Ortiz, la problemática se agrava debido a la distribución de tarjetas por parte de algunos
+                    conductores, tanto de taxis como de plataformas, quienes han establecido su clientela sin contar con
+                    la debida autorización. Esta situación, señaló, representa un riesgo para los usuarios,
+                    especialmente para las mujeres.<br>
+                    El representante del gremio destacó la importancia de abordar esta cuestión antes del inicio de la
+                    feria, ya que se espera un aumento significativo de vehículos provenientes de otras regiones que se
+                    sumarán al evento. Además, mencionó la necesidad de apoyo por parte de las autoridades municipales,
+                    incluyendo al coordinador Ricardo Serrano, para enfrentar esta problemática.<br>
+                    En cuanto al parque vehicular de la asociación, Ortiz indicó que, aunque aún se mantienen unidades
+                    como el Tsuru, se están incorporando vehículos más recientes, como el Versa 2024. Sin embargo,
+                    subrayó las dificultades económicas que enfrentan, especialmente en relación con el incremento de
+                    los costos operativos y la necesidad de revisar las tarifas, que no han sido ajustadas desde hace
+                    tres años.
+                </p>
+                <hr>
+            </a>
+        </div>
+    </div>
+    <hr>
+
+    <footer>
+        <p>José Ma. Chávez 120, Centro, Aguascalientes, Ags. Tel 01 (449) 994 6800 y 915 3231
+            <a href="http://www.heraldo.mx/aviso-legal/" style="color: rgb(72, 165, 218);">Aviso Legal</a>
+            |
+            <a href="http://www.heraldo.mx/privacidad/" style="color: rgb(72, 165, 218);">Aviso de Privacidad</a>
+        </p>
+    </footer>
+</body>
+
+</html>
