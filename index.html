@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+	<!-- Metadatos y configuración del documento -->
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	<!--Certificado digital-->
+	<meta name="author" content="TeamITA">
+	<meta name="descripcion"
+		content="Descubre la variedad de productos en La TiendITA, desde electrónica hasta accesorios de figuras. Todo lo que necesitas en un solo lugar.">
+	<meta name="keywords" content="ecommerce, tienda online, La TiendITA, compras en línea, mejores precios">
+
+	<!-- Enlaces a archivos de estilo y Bootstrap -->
+	<title>Tienda</title>
+	<link rel="stylesheet" href="styles.css" />
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous">
+		</script>
+
+	<!-- Iconos de Bootstrap -->
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+
+<body>
+	<!-- Encabezado de la página -->
+	<header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+		<!-- Logo de la página -->
+		<a href="index.html"
+			class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none ms-3 me-3">
+			<img src="logo-light.png" alt="Mi Logo" class="bi me-2" width="256" height="64">
+		</a>
+
+		<!-- Menú de navegación -->
+		<ul class="nav nav-pills">
+			<li class="nav-item">
+				<a href="index.html" class="nav-link active" aria-current="page">
+					<i class="bi bi-house-door"></i> Inicio
+				</a>
+			</li>
+
+			<!-- Menú de cuenta -->
+			<li class="nav-item dropdown">
+				<a class="nav-link dropdown-toggle" href="" id="navbarDropdown" role="button" data-bs-toggle="dropdown"
+					aria-haspopup="true" aria-expanded="false">
+					<i class="bi bi-person-circle"></i> Cuenta
+				</a>
+				<div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+					<a class="dropdown-item" href="Iniciar Sesion.html">Iniciar sesión</a>
+					<a class="dropdown-item" style="cursor: pointer;" data-bs-toggle="modal"
+						data-bs-target="#staticBackdrop">Cerrar sesión</a>
+				</div>
+			</li>
+
+			<!-- Carrito de compras -->
+			<li class="nav-item">
+				<a class="nav-link cesta" style="cursor: pointer; color: white;" data-bs-toggle="modal"
+					data-bs-target="#carrito">
+					<i class="bi bi-cart cesta"></i> Cesta
+				</a>
+			</li>
+
+		</ul>
+	</header>
+
+	<!-- Modal para cerrar sesión -->
+	<div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel">Cerrando sesión</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<div class="progress" role="progressbar" aria-label="Animated striped example" aria-valuenow="75"
+						aria-valuemin="0" aria-valuemax="100">
+						<div class="progress-bar progress-bar-striped progress-bar-animated" style="width: 100%">100%
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Modal para el carrito de compras -->
+	<div class="modal fade" id="carrito" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel">Carrito</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body">
+					<table id="lista-carrito" class="table">
+						<thead>
+							<tr>
+								<th>Imagen</th>
+								<th>Nombre</th>
+								<th>Precio</th>
+								<th>Cantidad</th>
+								<th></th>
+							</tr>
+						</thead>
+						<tbody></tbody>
+					</table>
+					<hr>
+					<!-- Mensaje de carrito vacío -->
+					<h5 id="mensaje-carrito-vacio" class="alert alert-success"
+						style="text-align: center; display: none;">¡El carrito
+						está
+						vacío!</h5>
+
+					<h5 style="text-align: right;">Total a pagar: <span id="total-pagar"></span></h5>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-success">Pagar</button>
+					<button type="button" class="btn btn-danger">Vaciar carrito</button>
+					<button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Contenedor principal para los productos -->
+	<div class="container" id="lista-productos">
+		<div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+			<!-- Lista de productos -->
+			<div class="col">
+				<div class="card shadow-sm" style="background-color: rgb(245, 245, 245);">
+					<figure>
+						<a href="Producto1.html"><img
+								src="IMG/Honkai-figura-de-Anime-de-Star-Rail-escultura-de-personaje-del-juego-Jingliu-estatua-de-acci.webp"
+								alt="producto" class="bd-placeholder-img card-img-top" /></a>
+					</figure>
+					<div class="card-body título">
+						<p class="card-text">Honkai-figura de Anime de Star Rail, escultura de personaje del juego
+							Jingliu</p>
+						<div style="align-items: center;">
+							<span class="text-body-secondary precio-anteior">$1516.91</span>
+							<span class="text-body-secondary precio">$</span><span id="precio"
+								class="text-body-secondary">1426.12</span>
+						</div>
+						<br>
+						<div class="d-flex justify-content-between">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito" style="color: rgb(255, 230, 231); background-color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;" id="1">Agregar
+									al
+									carrito</button>
+								<a href="Producto1.html"><button type="button" class="btn btn-sm btn-outline-secondary"
+										style="background-color: rgb(255, 230, 231); color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;">Ver detalles</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card shadow-sm" style="background-color: rgb(245, 245, 245);">
+					<figure>
+						<a href="Producto2.html"><img
+								src="IMG/KZ-Cable-Original-de-cobre-de-alta-pureza-para-auriculares-accesorio-para-ZS3-ZS4-EDX-ZSN.jpg_.webp"
+								alt="producto" class="bd-placeholder-img card-img-top" /></a>
+					</figure>
+					<div class="card-body">
+						<p class="card-text">KZ-Cable Original de cobre de alta pureza para auriculares</p>
+						<div style="align-items: center;">
+							<span class="text-body-secondary precio-anteior">$142.64</span>
+							<span class="text-body-secondary">$</span><span id="precio"
+								class="text-body-secondary">41.37</span>
+						</div>
+						<br>
+						<div class="d-flex justify-content-between">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito" style="color: rgb(255, 230, 231); background-color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+                        font-weight: bold;" id="2">Agregar
+									al
+									carrito</button>
+								<a href="Producto2.html"><button type="button" class="btn btn-sm btn-outline-secondary"
+										style="background-color: rgb(255, 230, 231); color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+                        font-weight: bold;">Ver detalles</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card shadow-sm" style="background-color: rgb(245, 245, 245);">
+					<figure>
+						<a href="Producto3.html"><img
+								src="IMG/HIFIMAN-auriculares-magn-ticos-con-cable-HE400SE-para-audi-filos-aud-fonos-de-tama-o-completo.jpg_.webp"
+								alt="producto" class="bd-placeholder-img card-img-top" /></a>
+					</figure>
+					<div class="card-body">
+						<p class="card-text">HIFIMAN-auriculares magnéticos con cable HE400SE para audiófilos</p>
+						<div style="align-items: center;">
+							<span class="text-body-secondary precio-anteior">$2245.10</span>
+							<span class="text-body-secondary">$</span><span id="precio"
+								class="text-body-secondary">2132.87</span>
+						</div>
+						<br>
+						<div class="d-flex justify-content-between">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito" style="color: rgb(255, 230, 231); background-color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;" id="3">Agregar
+									al
+									carrito</button>
+								<a href="Producto3.html"><button type="button" class="btn btn-sm btn-outline-secondary"
+										style="background-color: rgb(255, 230, 231); color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;">Ver detalles</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card shadow-sm" style="background-color: rgb(245, 245, 245);">
+					<figure>
+						<a href="Producto4.html"><img
+								src="IMG/Hifiman-auriculares-magn-ticos-planos-HE400se-originales-dise-o-de-espalda-abierta-auriculares-ortodin-micos-de.jpg_.webp"
+								alt="producto" class="bd-placeholder-img card-img-top" /></a>
+					</figure>
+					<div class="card-body">
+						<p class="card-text">Hifiman-auriculares magnéticos planos HE400se originales</p>
+						<div style="align-items: center;">
+							<span class="text-body-secondary precio-anteior">$2245.10</span>
+							<span class="text-body-secondary">$</span><span id="precio"
+								class="text-body-secondary">2132.87</span>
+						</div>
+						<br>
+						<div class="d-flex justify-content-between">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito" style="color: rgb(255, 230, 231); background-color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;" id="4">Agregar
+									al
+									carrito</button>
+								<a href="Producto4.html"><button type="button" class="btn btn-sm btn-outline-secondary"
+										style="background-color: rgb(255, 230, 231); color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;">Ver detalles</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card shadow-sm" style="background-color: rgb(245, 245, 245);">
+					<figure>
+						<a href="Producto5.html"><img
+								src="IMG/Lector-de-tarjetas-Micro-sd-2-en-1-adaptador-de-alta-velocidad-TF-accesorios-para-PC.jpg_.webp"
+								alt="producto" class="bd-placeholder-img card-img-top" /></a>
+					</figure>
+					<div class="card-body">
+						<p class="card-text">Lector de tarjetas Micro sd 2 en 1, adaptador de alta velocidad</p>
+						<div style="align-items: center;">
+							<span class="text-body-secondary precio-anteior">$58.67</span>
+							<span class="text-body-secondary">$</span><span id="precio"
+								class="text-body-secondary">17.01</span>
+						</div>
+						<br>
+						<div class="d-flex justify-content-between">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito" style="color: rgb(255, 230, 231); background-color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;" id="5">Agregar
+									al
+									carrito</button>
+								<a href="Producto5.html"><button type="button" class="btn btn-sm btn-outline-secondary"
+										style="background-color: rgb(255, 230, 231); color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;">Ver detalles</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="col">
+				<div class="card shadow-sm" style="background-color: rgb(245, 245, 245);">
+					<figure>
+						<a href="Producto6.html"><img
+								src="IMG/DinoFire-Type-C-Charger-Dock-for-Xbox-One-S-X-Xbox-Series-X-S-Wireless-Controller.png_350x350xz.png_.webp"
+								alt="producto" class="bd-placeholder-img card-img-top" /></a>
+					</figure>
+					<div class="card-body">
+						<p class="card-text">Cargador rápido Dual para Xbox One X/S/Elite Xbox Series X/S</p>
+						<div style="align-items: center;">
+							<span class="text-body-secondary precio-anteior">$758.58</span>
+							<span class="text-body-secondary">$</span><span id="precio"
+								class="text-body-secondary">382.40</span>
+						</div>
+						<br>
+						<div class="d-flex justify-content-between">
+							<div class="btn-group">
+								<button type="button" class="btn btn-sm btn-outline-secondary agregar-carrito" style="color: rgb(255, 230, 231); background-color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;" id="6">Agregar
+									al
+									carrito</button>
+								<a href="Producto6.html"><button type="button" class="btn btn-sm btn-outline-secondary"
+										style="background-color: rgb(255, 230, 231); color: rgb(253, 56, 79); border-color: rgb(253, 56, 79); font-size: larger;
+									font-weight: bold;">Ver detalles</button></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<br>
+
+	<!-- Pie de página -->
+	<footer class="bg-dark text-light pt-5 pb-4">
+		<div class="container text-center text-md-start">
+			<div class="row text-center text-md-start">
+				<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+					<h5 class="text-uppercase mb-4 font-weight-bold text-primary text-center">Nosotros</h5>
+					<hr class="mb-4">
+					<p style="text-align: justify;">En "La tiendITA" en línea, nuestra misión es proporcionar productos
+						de
+						calidad excepcional a precios competitivos. Nos esforzamos por mantener altos estándares de
+						servicio al cliente y garantizar la satisfacción de nuestros clientes en cada compra.</p>
+				</div>
+				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+					<h5 class="text-uppercase mb-4 font-weight-bold text-primary text-center">Déjanos ayudarte</h5>
+					<hr class="mb-4">
+					<p>
+						<a href="Iniciar Sesion.html" class="text-light">Tu cuenta</a>
+					</p>
+					<p>
+						<a href="Iniciar Sesion.html" class="text-light">Tus órdenes</a>
+					</p>
+					<p>
+						<a href="Iniciar Sesion.html" class="text-light">Manejo de cuenta</a>
+					</p>
+					<p>
+						<a href="Contacto.html" class="text-light">Ayuda</a>
+					</p>
+				</div>
+				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+					<h5 class="text-uppercase mb-4 font-weight-bold text-primary text-center">Haz dinero</h5>
+					<hr class="mb-4">
+					<p>
+						<a href="Contacto.html" class="text-light">Vende en nuestro sitio</a>
+					</p>
+					<p>
+						<a href="Contacto.html" class="text-light">Anuncios</a>
+					</p>
+					<p>
+						<a href="Contacto.html" class="text-light">Afíliate</a>
+					</p>
+					<p>
+						<a href="Contacto.html" class="text-light">Publica</a>
+					</p>
+				</div>
+				<div class="col-md-2 col-lg-2 col-xl-2 mx-auto mt-3">
+					<h5 class="text-uppercase mb-4 font-weight-bold text-primary text-center">Contacto</h5>
+					<hr class="mb-4">
+					<p>
+						<i class="bi bi-house-door"></i> México, Aguascalientes
+					</p>
+					<p>
+						<i class="bi bi-envelope"></i> test@gmail.com
+					</p>
+					<p>
+						<i class="bi bi-telephone"></i> +55 449 ### #####
+					</p>
+					<p>
+						<i class="bi bi-printer"></i> +55 ### ### #####
+					</p>
+				</div>
+				<!-- Mapa -->
+				<div class="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
+					<h5 class="text-uppercase mb-4 font-weight-bold text-primary text-center">Encuentranos</h5>
+					<hr class="mb-4">
+					<iframe
+						src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d59238.3133611616!2d-102.34303818345194!3d21.880876148465585!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ee069d6cf307%3A0xd93b5294c07171a7!2sInstituto%20Tecnol%C3%B3gico%20de%20Aguascalientes!5e0!3m2!1ses-419!2smx!4v1715065770824!5m2!1ses-419!2smx"
+						width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+						referrerpolicy="no-referrer-when-downgrade"></iframe>
+				</div>
+			</div>
+		</div>
+		<hr class="mb-4">
+		<div class="text-center mb-2">
+			<p>
+				©Copyright 2024 Todos los derechos reservados
+				<a href="https://www.indautor.gob.mx/">
+					<strong class="text-primary">Test</strong>
+				</a>
+			</p>
+		</div>
+		<div class="text-center">
+			<ul class="list-unstyled list-inline">
+				<li class="list-inline-item">
+					<a href="https://www.facebook.com/" class="text-light"><i class="bi bi-facebook"></i></a>
+				</li>
+				<li class="list-inline-item">
+					<a href="https://www.twitter.com/" class="text-light"><i class="bi bi-twitter-x"></i></a>
+				</li>
+				<li class="list-inline-item">
+					<a href="https://www.instagram.com/" class="text-light"><i class="bi bi-instagram"></i></a>
+				</li>
+				<li class="list-inline-item">
+					<a href="https://www.messenger.com/" class="text-light"><i class="bi bi-messenger"></i></a>
+				</li>
+				<li class="list-inline-item">
+					<a href="https://www.youtube.com/" class="text-light"><i class="bi bi-youtube"></i></a>
+				</li>
+				<li class="list-inline-item">
+					<a href="https://web.whatsapp.com/" class="text-light"><i class="bi bi-whatsapp"></i></a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="text-center mb-2" data-bs-toggle="modal" data-bs-target="#xd">
+			<strong class="text-dark">Test</strong>
+		</div>
+	</footer>
+
+	<!-- Modal especial -->
+	<div class="modal fade" id="xd" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+		aria-labelledby="staticBackdropLabel" aria-hidden="true">
+		<div class="modal-dialog modal-lg">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h1 class="modal-title fs-5" id="staticBackdropLabel">--Easteregg--</h1>
+					<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+				</div>
+				<div class="modal-body text-center">
+					<img src="xd.gif">
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary"
+						data-bs-dismiss="modal">XDDDDDDDDDDDDDDDDDDD</button>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!-- Script para el carrito de compras -->
+	<script src="carrito.js"></script>
+
+</body>
+
+</html>
